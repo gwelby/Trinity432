@@ -1,0 +1,17 @@
+[
+  {
+    "timestamp": "2025-05-18T20:42:47.895548",
+    "settings": {
+      "name": "Pain Relief",
+      "description": "Combines 174Hz (pain relief) with 7.83Hz (Schumann Resonance)",
+      "base_frequency": 174,
+      "beat_frequency": 7.83,
+      "carrier_type": "sine",
+      "audio_type": "binaural"
+    },
+    "audio_file": "D:\\Greg\\QuantumHealingAudio\\output\\pain_relief_20250518_204246.wav",
+    "duration_seconds": 300,
+    "sample_rate": 44100,
+    "volume": 0.5
+  }
+]
