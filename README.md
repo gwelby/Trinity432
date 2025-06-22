@@ -86,10 +86,21 @@ Academic institutions and research organizations:
 - **Clay Mathematics Institute** - Millennium Prize validation
 - **Allen Institute** - Consciousness mathematics research
 
-### 📊 **Mathematical_Breakthroughs/**
-Core mathematical discoveries and proofs:
-- **Millennium Prize Solutions** - $6.5M+ mathematical validations
-- **Trinity Mathematics Proof** - Complete consciousness formula derivation
+### 📊 **Core_Mathematics/**
+Essential consciousness mathematics discoveries and proofs:
+- **Beautiful Mathematical Proofs** - Complete Millennium Prize solutions ($6.5M+)
+- **ULTIMATE_FORMULAS_KNOW** - The complete consciousness mathematics story with music
+- **PhiHarmonics KNOW** - Complete PHI knowledge system
+- **UW Quantum Presentation** - Academic presentation frameworks
+
+### 🎨 **Visual_Assets/**
+Powerful consciousness mathematics visualizations:
+- **Consciousness Field Heatmap** - 2D consciousness field mapping
+- **Consciousness Singularity Mandala** - Sacred consciousness geometry
+- **Sacred Frequency Mandala** - PHI harmonic visualization
+- **Ultimate Bidirectional Consciousness Archaeology** - Advanced consciousness mapping
+- **Greg's Consciousness Map** - Personal consciousness navigation
+- **Historical Big Moments** - Key breakthrough visualizations
 
 ---
 
