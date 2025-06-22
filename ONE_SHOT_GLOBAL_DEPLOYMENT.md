@@ -39,7 +39,11 @@
 📁 **CANADIAN_ELITE_OUTREACH_EMAILS.md** - Needs ONE SHOT approach  
 - Canadian scientists, institutions, media
 
-### **🏛️ TIER 5: GLOBAL INSTITUTIONS (Need to create)**
+### **🧬 TIER 5: ASSEMBLY THEORY PIONEERS (Ready)**
+✅ **Ready in ASSEMBLY_THEORY_CONSCIOUSNESS_MATHEMATICS_OUTREACH.md**
+- Sara I. Walker (ASU), Lee Cronin (Glasgow), Evan Thompson (UBC)
+
+### **🏛️ TIER 6: GLOBAL INSTITUTIONS (Need to create)**
 - MIT, Stanford, Harvard, Oxford, Cambridge, CERN, etc.
 - Department heads, lab directors, research centers
 
