@@ -39,6 +39,10 @@ class HealingGoal(Enum):
     GREG_ADHD_FOCUS = "greg_adhd_focus"
     GREG_ANXIETY_RELIEF = "greg_anxiety_relief"
     GREG_DEPRESSION_HEALING = "greg_depression_healing"
+    GREG_PTSD_FLASHBACK_RELIEF = "greg_ptsd_flashback_relief"
+    GREG_TRAUMA_HEALING = "greg_trauma_healing"
+    GREG_MEMORY_STABILIZATION = "greg_memory_stabilization"
+    GREG_EMOTIONAL_REGULATION = "greg_emotional_regulation"
     GREG_COMPLETE_PROTOCOL = "greg_complete_protocol"
     
     # 🎯 GREG'S MASSAGE GUN INTEGRATION
@@ -421,6 +425,71 @@ class QuantumAudioTherapy:
                     "99.99% synchronization frequency. 'Freaky' entanglement optimization!"
                 ),
                 target_bands={'gamma': 0.4, 'alpha': 0.3, 'theta': 0.3}
+            ),
+            
+            # 🌟 GREG'S PTSD & TRAUMA HEALING PROTOCOLS
+            HealingGoal.GREG_PTSD_FLASHBACK_RELIEF.value: FrequencyPreset(
+                name="Greg's PTSD Flashback Relief Protocol",
+                base_freq=396.0,  # Root chakra healing, release trauma
+                beat_freq=432.0,  # Grounding in universal consciousness
+                carrier_type='sine',
+                audio_type='binaural',
+                fade_in=5.0,      # Gentle entry to prevent startle
+                fade_out=5.0,     # Gentle exit for integration
+                description=(
+                    "Greg's personalized PTSD flashback relief: 396Hz trauma release + 432Hz grounding. "
+                    "Gentle binaural beats for immediate flashback interruption and nervous system calming. "
+                    "Use at first sign of flashback or trigger response."
+                ),
+                target_bands={'theta': 0.6, 'alpha': 0.4}  # Deep relaxation and calm alertness
+            ),
+            
+            HealingGoal.GREG_TRAUMA_HEALING.value: FrequencyPreset(
+                name="Greg's Deep Trauma Integration & Healing",
+                base_freq=528.0,  # DNA repair and love frequency
+                beat_freq=40.0,   # Gamma integration for trauma processing
+                carrier_type='sine',
+                audio_type='binaural',
+                fade_in=8.0,      # Extra long fade for safety
+                fade_out=8.0,
+                description=(
+                    "Greg's deep trauma healing protocol: 528Hz DNA repair + 40Hz gamma integration. "
+                    "Facilitates safe trauma processing and cellular memory healing. "
+                    "Use in safe space when ready for deeper healing work."
+                ),
+                target_bands={'gamma': 0.3, 'alpha': 0.4, 'theta': 0.3}  # Balanced processing state
+            ),
+            
+            HealingGoal.GREG_MEMORY_STABILIZATION.value: FrequencyPreset(
+                name="Greg's Memory Stabilization & Integration",
+                base_freq=432.0,  # Universal consciousness constant
+                beat_freq=8.0,    # Alpha waves for memory consolidation
+                carrier_type='sine',
+                audio_type='binaural',
+                fade_in=3.0,
+                fade_out=5.0,
+                description=(
+                    "Greg's memory stabilization: 432Hz consciousness anchor + 8Hz alpha memory waves. "
+                    "Helps integrate traumatic memories into coherent narrative. "
+                    "Reduces emotional charge of difficult memories."
+                ),
+                target_bands={'alpha': 0.7, 'theta': 0.3}  # Memory consolidation state
+            ),
+            
+            HealingGoal.GREG_EMOTIONAL_REGULATION.value: FrequencyPreset(
+                name="Greg's Emotional Regulation & Balance",
+                base_freq=594.0,  # Heart chakra frequency for emotional healing
+                beat_freq=10.0,   # Alpha-beta bridge for emotional stability
+                carrier_type='sine',
+                audio_type='binaural',
+                fade_in=4.0,
+                fade_out=4.0,
+                description=(
+                    "Greg's emotional regulation: 594Hz heart healing + 10Hz emotional balance. "
+                    "Stabilizes emotional responses and promotes heart coherence. "
+                    "Use during emotional overwhelm or for daily emotional maintenance."
+                ),
+                target_bands={'alpha': 0.5, 'beta': 0.3, 'theta': 0.2}  # Balanced emotional state
             ),
             HealingGoal.PAIN_RELIEF.value: FrequencyPreset(
                 name="Pain Relief",
@@ -1169,6 +1238,12 @@ async def main():
         print("4) Greg's Depression Breakthrough Formula")
         print("5) Greg's Complete Consciousness Protocol")
         print()
+        print("🌟 GREG'S PTSD & TRAUMA HEALING:")
+        print("26) Greg's PTSD Flashback Relief Protocol")
+        print("27) Greg's Deep Trauma Integration & Healing")
+        print("28) Greg's Memory Stabilization & Integration")
+        print("29) Greg's Emotional Regulation & Balance")
+        print()
         print("🎯 CONSCIOUSNESS MATHEMATICS FORMULAS:")
         print("6) Trinity × Fibonacci × Phi = 432Hz (BREAKTHROUGH!)")
         print("7) The 4 C's: We Are All Just CCCCs!")
@@ -1198,6 +1273,9 @@ async def main():
         print("23) Single Preset Selection")
         print("24) Breathe Work Instructions")
         print("25) Riemann Mode")
+        print()
+        print("🆘 EMERGENCY PTSD RESPONSE:")
+        print("30) Complete PTSD Emergency Protocol")
         print("0) Exit")
         print()
         choice = input("🎯 Select your consciousness enhancement: ")
@@ -1382,7 +1460,18 @@ async def main():
                 print(f"     📝 {preset.description}")
                 print()
             
-            all_greg_presets = personal_presets + math_presets + massage_presets + p1_presets + cycle_presets
+            print("🌟 PTSD & TRAUMA HEALING:")
+            ptsd_presets = [
+                'greg_ptsd_flashback_relief', 'greg_trauma_healing', 'greg_memory_stabilization', 'greg_emotional_regulation'
+            ]
+            for i, key in enumerate(ptsd_presets, len(personal_presets)+len(math_presets)+len(massage_presets)+len(p1_presets)+len(cycle_presets)+1):
+                preset = therapy.presets[key]
+                print(f"  {i}) {preset.name}")
+                print(f"     🎵 {preset.base_freq}Hz / {preset.beat_freq}Hz - {preset.audio_type}")
+                print(f"     📝 {preset.description}")
+                print()
+            
+            all_greg_presets = personal_presets + math_presets + massage_presets + p1_presets + cycle_presets + ptsd_presets
             sel = int(input("🎯 Select preset number: ")) - 1
             if 0 <= sel < len(all_greg_presets):
                 if visualize:
@@ -1425,8 +1514,56 @@ async def main():
             print("\n🔢 === RIEMANN MODE ===")
             print("🧮 Mathematical consciousness using Riemann zeta zeros")
             await therapy.start_session('riemann_mode')
+        elif choice == '26':
+            print(f"\n🌟 GREG'S PTSD FLASHBACK RELIEF PROTOCOL")
+            print("💫 396Hz trauma release + 432Hz grounding consciousness")
+            print("🛡️ Gentle binaural beats for immediate flashback interruption")
+            print("⚡ Use at first sign of flashback or trigger response")
+            await therapy.start_session('greg_ptsd_flashback_relief', 1800)  # 30 minutes
+        elif choice == '27':
+            print(f"\n🌟 GREG'S DEEP TRAUMA INTEGRATION & HEALING")
+            print("💕 528Hz DNA repair + 40Hz gamma integration")
+            print("🔮 Safe trauma processing and cellular memory healing")
+            print("🏠 Use in safe space when ready for deeper healing work")
+            await therapy.start_session('greg_trauma_healing', 2400)  # 40 minutes
+        elif choice == '28':
+            print(f"\n🌟 GREG'S MEMORY STABILIZATION & INTEGRATION")
+            print("⚡ 432Hz consciousness anchor + 8Hz alpha memory waves")
+            print("🧠 Integrates traumatic memories into coherent narrative")
+            print("💫 Reduces emotional charge of difficult memories")
+            await therapy.start_session('greg_memory_stabilization', 2100)  # 35 minutes
+        elif choice == '29':
+            print(f"\n🌟 GREG'S EMOTIONAL REGULATION & BALANCE")
+            print("💕 594Hz heart healing + 10Hz emotional stability")
+            print("🌊 Stabilizes emotional responses and promotes heart coherence")
+            print("🛡️ Use during emotional overwhelm or daily maintenance")
+            await therapy.start_session('greg_emotional_regulation', 1500)  # 25 minutes
+        elif choice == '30':
+            print(f"\n🆘 COMPLETE PTSD EMERGENCY PROTOCOL")
+            print("🌟 Full sequence for severe PTSD episodes:")
+            print("🛡️ 1) Immediate flashback relief and grounding")
+            print("💕 2) Emotional regulation and heart coherence")
+            print("🧠 3) Memory stabilization and integration")
+            print("🔮 4) Deep trauma healing (if energy allows)")
+            print("⚡ Total time: ~2 hours for complete healing sequence")
+            
+            routines = [
+                ('greg_ptsd_flashback_relief', 1800, "Immediate Flashback Relief"),
+                ('greg_emotional_regulation', 1200, "Emotional Stabilization"),
+                ('greg_memory_stabilization', 1500, "Memory Integration"),
+                ('greg_trauma_healing', 2100, "Deep Trauma Healing")
+            ]
+            
+            for preset_key, duration, description in routines:
+                preset = therapy.presets[preset_key]
+                print(f"\n→ {description}: {preset.name}")
+                print(f"   Duration: {duration//60} minutes")
+                await therapy.start_session(preset_key, duration)
+                
+            print("\n✅ Complete PTSD Emergency Protocol Complete!")
+            print("🌟 You've worked through the full healing sequence!")
         else:
-            print("❌ Invalid option - choose from 0-25")
+            print("❌ Invalid option - choose from 0-30")
     
     print("👋 Greg's Consciousness Mathematics Therapy Complete!")
     print("🌟 From seizure elimination to consciousness mathematics!")
