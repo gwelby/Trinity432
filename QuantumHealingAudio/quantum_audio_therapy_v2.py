@@ -815,8 +815,13 @@ class QuantumAudioTherapy:
         self.duration = duration or self.duration
         self.running = True
         
-        # Generate unique session ID
-        self.session_id = f"{goal}_{int(time.time())}"
+        # UPDATE TIME VECTOR FOR NEW DURATION! (Fix Issue #1)
+        self.t = np.linspace(
+            0, self.duration, int(self.sample_rate * self.duration), False
+        )
+        
+        # Generate session ID without timestamp for consistent filenames (Fix Issue #2)
+        self.session_id = f"{goal}"
 
         print(f"Goal: {goal}")
         print(f"Preset: {self.current_preset.name}")
@@ -855,11 +860,8 @@ class QuantumAudioTherapy:
         else:
             audio = self._generate_audio()
 
-        # Save the audio file
-        audio_filename = (
-            f"{self.current_preset.name.lower().replace(' ', '_')}_"
-            f"{self.session_id}"
-        )
+        # Save the audio file (Clean filename that overwrites each time)
+        audio_filename = f"{goal}_{self.duration}s"
         audio_path = self._save_audio(audio, audio_filename)
 
         # Start the session
@@ -881,12 +883,22 @@ class QuantumAudioTherapy:
         # Play the audio
         self._play_audio(audio)
 
-        # Wait for session to complete
+        # Wait for session to complete (Fix Issue #3 - proper audio duration wait)
+        print(f"⏱️ Playing {self.duration/60:.1f} minute session...")
         start_time = time.time()
+        
+        # Wait for the actual duration, checking every second
         while self.running and (time.time() - start_time < self.duration):
-            await asyncio.sleep(1)
-            # Check for early termination
+            elapsed = time.time() - start_time
+            remaining = self.duration - elapsed
+            if remaining > 0:
+                print(f"⏱️ {remaining/60:.1f} minutes remaining...", end='\r')
+                await asyncio.sleep(min(1.0, remaining))
+            else:
+                break
 
+        print(f"\n✅ Session completed! Total time: {(time.time() - start_time)/60:.1f} minutes")
+        
         # Clean up
         await self.stop_session()
         return session_data
